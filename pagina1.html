@@ -1,0 +1,77 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+function calcular(op) 
+{ 
+	if (document.frm1.v1.value != '' && document.frm1.v2.value != '')
+	{
+		var val1 = parseFloat(document.frm1.v1.value); 
+		var val2 = parseFloat(document.frm1.v2.value);
+		ok = 1;
+		if (op == '+')
+		{	
+			result = (val1 + val2);
+		}
+		else
+		if (op == '-')
+		{	
+			result = (val1 - val2);
+		}
+		else
+		if (op == '*')
+		{	
+			result = (val1 * val2);
+		}
+		else
+		if (op == '/')
+		{	
+			if (val2 == 0)
+			{
+				alert('O segundo valor deve ser diferente de 0!');
+				ok = 0;
+			}
+			else
+			{
+				result = (val1 / val2);
+			}
+		}
+		else
+		if (op == '%')
+		{	
+			if (val2 == 0)
+			{
+				alert('O segundo valor deve ser diferente de 0!');
+				ok = 0;
+			}
+			else
+			{
+				result = (val1 % val2);
+			}
+		}
+		if (ok)
+		{
+			alert('O resultado da operação é: '+result.toFixed(2));
+		}
+	}
+	else
+	{
+		alert('Há valor(es) em branco! Preencha...');
+	}
+} 
+</script>
+<title>Operações aritméticas</title>
+</head>
+<body>
+<center>
+<form name="frm1">
+	Valor 1:<input type="text" size=5 name="v1" required><br>
+	Valor 2:<input type="text" size=5 name="v2" required><br>
+	<input type="button" value=" + " onClick="calcular('+');">
+	<input type="button" value=" - " onClick="calcular('-');">
+	<input type="button" value=" * " onClick="calcular('*');">
+	<input type="button" value=" / " onClick="calcular('/');">
+	<input type="button" value=" % " onClick="calcular('%');">
+</form>
+</center>
+</body>
+</html>
